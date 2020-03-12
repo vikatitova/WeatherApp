@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Weather</title>
+</head>
+<body>
+    <header></header>
+    <main>
+        <div class="select">
+            <select id="select-region" onChange=setRegions(this)>
+                <option selected disabled>region</option>
+            </select>
+        </div>
+        <div class="select">
+            <select id="select-city">
+                <option selected disabled>city</option>
+            </select>
+        </div>
+        <div class="select">
+            <select id="select-date" onChange=activeButton()>
+                <option selected disabled>date</option>
+                <option>Today</option>
+                <option>Tomorrow</option>
+                <option>After 2 days</option>
+                <option>After 3 days</option>
+                <option>After 4 days</option>
+                <option>After 5 days</option>
+            </select>
+        </div>
+        <button class="button" id="button" disabled="true" onclick=getWeather()>
+            GET WEATHER
+        </button>
+        <div class="data" id="data"></div>
+    </main>
+    <footer></footer>
+    <script src="main.js"></script>
+</body>
+</html>
