@@ -7,7 +7,6 @@
     <title>Weather</title>
 </head>
 <body>
-    <header></header>
     <main>
         <div class="select">
             <select id="select-region" onChange=setRegions(this)>
@@ -33,9 +32,9 @@
         <button class="button" id="button" disabled="true" onclick=getWeather()>
             GET WEATHER
         </button>
+        <div id="date" class="date"></div>
         <div class="data" id="data"></div>
     </main>
-    <footer></footer>
     <script src="main.js"></script>
 </body>
 </html>

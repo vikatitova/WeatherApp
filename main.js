@@ -44,25 +44,47 @@ function kelvintoCelcius(temp){
 
  function getoutDate(weatherdata){
     document.getElementById("data").innerHTML = "";
+    document.getElementById("date").innerHTML = "";
 
     const today = new Date();
     const selectedDate = new Date();
     selectedDate.setDate(selectedDate.getDate() + (document.getElementById('select-date').selectedIndex - 1));
     const selectedDay = selectedDate.getDate();
     console.log(selectedDay);
+
+    const divdate = document.createElement('div');
+    divdate.innerHTML = selectedDate.toLocaleDateString();
+    document.getElementById('date').appendChild(divdate);
+
     weatherdata.list.forEach(currentWeather => {
         
         const unixTimestamp = currentWeather.dt;
         const currentWeatherDay = new Date(unixTimestamp * 1000).getDate();
         console.log(currentWeatherDay);
         const p = document.createElement('p');
+        const div = document.createElement('div');
+        const span = document.createElement('span');
+        const img = document.createElement("img");
+
         if (selectedDay === currentWeatherDay) {
-            p.innerHTML = new Date(unixTimestamp * 1000).toLocaleString()
-                + ' — ' 
-                + kelvintoCelcius(currentWeather.main.temp_min)
-                + ' / '
-                + kelvintoCelcius(currentWeather.main.temp_max);
-                document.getElementById('data').appendChild(p);
+                img.src = `https://openweathermap.org/img/wn/${currentWeather.weather[0]["icon"]}@2x.png`;
+                const datetime = new Date(unixTimestamp * 1000).toLocaleString().split(',');
+                const time = datetime[1].split(':');
+                p.innerHTML = time[0] + ':' + time[1];
+            span.innerHTML = kelvintoCelcius(currentWeather.main.temp_min)
+                +'&deg;'
+                + '...'
+                + kelvintoCelcius(currentWeather.main.temp_max)
+                +'&deg;'
+                document.getElementById('data').appendChild(div).appendChild(p);
+                document.getElementById('data').appendChild(div).appendChild(img);
+                document.getElementById('data').appendChild(div).appendChild(span);
+                div.style.cssText = `
+                display: flex;
+                flex-direction: column;
+                align-items: center`
+                p.style.cssText = `
+                text-align: center`
         }
     });
 
