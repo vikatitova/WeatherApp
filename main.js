@@ -5,7 +5,6 @@ const apikey = 'd5e44ddd8ccf4615bf04c364515a0c62';
 async function getData(){
   const response =  await fetch(url);
   const data = await response.json();
-  console.log(data);
   return data
 }
 
@@ -50,7 +49,6 @@ function kelvintoCelcius(temp){
     const selectedDate = new Date();
     selectedDate.setDate(selectedDate.getDate() + (document.getElementById('select-date').selectedIndex - 1));
     const selectedDay = selectedDate.getDate();
-    console.log(selectedDay);
 
     const divdate = document.createElement('div');
     divdate.innerHTML = selectedDate.toLocaleDateString();
@@ -60,7 +58,6 @@ function kelvintoCelcius(temp){
         
         const unixTimestamp = currentWeather.dt;
         const currentWeatherDay = new Date(unixTimestamp * 1000).getDate();
-        console.log(currentWeatherDay);
         const p = document.createElement('p');
         const div = document.createElement('div');
         const span = document.createElement('span');
@@ -100,7 +97,6 @@ async function getWeather(){
     const apiurl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apikey}`;
     const data = await fetch(apiurl);
     const weatherdata = await data.json();
-    console.log(weatherdata);
     if(weatherdata.cod === "200"){
         getoutDate(weatherdata);
     }
