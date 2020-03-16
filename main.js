@@ -85,7 +85,7 @@ function kelvintoCelcius(temp){
                 align-items: center;
                 margin: 5px;
                 border-radius: 10px;
-                box-shadow: 2px 2px 0 #a4a9b5, -2px -2px 0 #a4a9b5;
+                box-shadow: #c4d5e7 2px 2px 0px, #c4d5e7 -2px -2px 0px;
             `
                 p.style.cssText = `
                 text-align: center`

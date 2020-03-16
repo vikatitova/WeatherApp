@@ -1,5 +1,4 @@
 body{
-    height: 100vh;
     display: flex;
     justify-content: center;
     margin: 0;
@@ -30,7 +29,8 @@ button{
     font-size: 1rem;
 }
 div.select{
-    width: 30%;
+    max-width: 300px;
+    width: 90%;
     margin-bottom: 1%;
 }
 option:disabled{
